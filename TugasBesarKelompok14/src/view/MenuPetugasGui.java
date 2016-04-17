@@ -6,6 +6,8 @@
 package view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
 import javax.swing.table.TableModel;
 import model.Petugas;
 
@@ -47,7 +49,8 @@ public class MenuPetugasGui extends javax.swing.JFrame {
         btnLogOut = new javax.swing.JButton();
         btnAddBarang = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txUsername = new javax.swing.JTextField();
+        btnViewBrg = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -97,7 +100,11 @@ public class MenuPetugasGui extends javax.swing.JFrame {
 
         jLabel2.setText("Welcome,");
 
-        jTextField1.setEditable(false);
+        txUsername.setEditable(false);
+        txUsername.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txUsername.setBorder(null);
+
+        btnViewBrg.setText("View List Barang");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,20 +119,21 @@ public class MenuPetugasGui extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addComponent(btnLogOut))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(125, 125, 125)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnKmliP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnTmbhP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnViewP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAddBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(btnLogOut)))
+                            .addComponent(btnAddBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnViewBrg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(135, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -134,8 +142,8 @@ public class MenuPetugasGui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                    .addComponent(txUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(btnTmbhP)
@@ -145,9 +153,11 @@ public class MenuPetugasGui extends javax.swing.JFrame {
                 .addComponent(btnViewP)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAddBarang)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnViewBrg)
+                .addGap(15, 15, 15)
                 .addComponent(btnLogOut)
-                .addGap(42, 42, 42))
+                .addContainerGap())
         );
 
         pack();
@@ -187,12 +197,27 @@ public class MenuPetugasGui extends javax.swing.JFrame {
     public Object getBtnBack(){
         return btnLogOut;
     }
+
+    public void setTxUsername(String s) {
+        txUsername.setText(s);
+    }
+
+    public Object getBtnViewBrg() {
+        return btnViewBrg;
+    }
+    public Object getBtnAddBrg(){
+        return btnAddBarang;
+    }
+
+   
     
     public void addlistener(ActionListener e) {
         btnTmbhP.addActionListener(e);
         btnKmliP.addActionListener(e);
         btnViewP.addActionListener(e);
         btnLogOut.addActionListener(e);
+        btnViewBrg.addActionListener(e);
+        btnAddBarang.addActionListener(e);
     }
 
     
@@ -202,11 +227,12 @@ public class MenuPetugasGui extends javax.swing.JFrame {
     private javax.swing.JButton btnKmliP;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnTmbhP;
+    private javax.swing.JButton btnViewBrg;
     private javax.swing.JButton btnViewP;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txUsername;
     // End of variables declaration//GEN-END:variables
 }

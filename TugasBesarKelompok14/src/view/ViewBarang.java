@@ -109,7 +109,7 @@ public class ViewBarang extends javax.swing.JFrame {
     
     public void setHeader() {
         String[] header = {"Kode Barang","Nama Barang","Jumlah Barang","Status"};
-        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model = new DefaultTableModel(null, header);
         tblViewBarang.setModel(model);
     }
     

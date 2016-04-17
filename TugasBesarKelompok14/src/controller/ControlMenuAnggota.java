@@ -7,6 +7,10 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.Aplication;
 import view.MenuAnggotaGui;
 
@@ -28,7 +32,20 @@ public class ControlMenuAnggota implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Object source = e.getSource();
+        if (source.equals(view.getBtnLogout())) {
+            ControlerMenuUtama menu = new ControlerMenuUtama();
+            view.dispose();
+        }else if (source.equals(view.getBtnViewBarang())) {
+            try {
+                ControlViewBarang viewB = new ControlViewBarang();
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Can't view list Barang");
+            }
+            view.dispose();
+        }else if (source.equals(view.getBtnViewList())) {
+            
+        }
     }
     
     

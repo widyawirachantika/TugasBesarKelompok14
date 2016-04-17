@@ -36,7 +36,6 @@ public class Anggota extends Orang implements Serializable {
     public void createPeminjaman(String tgl) {
         
         if ((riwayatPinjaman.isEmpty()) || (riwayatPinjaman.get(jumPinjaman-1).isStatusPeminjaman() == false)  ) {
-            System.out.println("popop");
             riwayatPinjaman.add(new Peminjaman(tgl));
             riwayatPinjaman.get(jumPinjaman).setStatusPeminjaman(true);
             jumPinjaman++;

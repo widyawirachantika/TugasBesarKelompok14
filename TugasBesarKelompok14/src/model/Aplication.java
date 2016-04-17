@@ -71,19 +71,29 @@ public class Aplication implements Serializable {
         return true;
     }
 
-    public void insertBarang(String namaBarang, int kodeBarang, int nBarang) {
-
-        Barang temp = listBarang.stream().filter(e -> e.equals(kodeBarang)).findFirst().orElse(null);
-        if (temp != null) {
-            System.out.println("barang dah ada");
-            listBarang.get(listBarang.indexOf(temp)).setnBarang(nBarang);
-            System.out.println("");
-        } else {
-            System.out.println("masuk");
+    public void insertBarang(String namaBarang, int kodeBarang, int nBarang) throws IOException {
+        loadBarang();
+        boolean temp=true;
+        for (Barang barang : listBarang) {
+            if (barang.getKodeBarang() == kodeBarang) {
+                listBarang.get(listBarang.indexOf(barang)).setnBarang(nBarang);
+                temp = false;
+            }
+        }
+        if (temp == true) {
             listBarang.add(new Barang(namaBarang, kodeBarang, nBarang));
-            System.out.println("added");
         }
 
+        //Barang temp = listBarang.stream().filter(e -> e.equals(kodeBarang)).findFirst().orElse(null);
+//        if (temp != null) {
+//            System.out.println("barang dah ada");
+//            listBarang.get(listBarang.indexOf(temp)).setnBarang(nBarang);
+//            System.out.println("");
+//        } else {
+//            System.out.println("masuk");
+//            listBarang.add(new Barang(namaBarang, kodeBarang, nBarang));
+//            System.out.println("added");
+//        }
     }
 
     public void loadAnggota() throws FileNotFoundException, IOException {
@@ -183,6 +193,7 @@ public class Aplication implements Serializable {
     }
 
     public List<Barang> getListBarang() throws IOException {
+        loadBarang();
         List<Barang> daft = new ArrayList<>();
         listBarang.stream().forEach((p) -> {
             daft.add(p);
@@ -249,7 +260,7 @@ public class Aplication implements Serializable {
 
                 try {
                     listAnggota.get(listAnggota.indexOf(a)).createPeminjaman(date);
-                    System.out.println("lol");
+
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
@@ -257,11 +268,11 @@ public class Aplication implements Serializable {
             }
         }
     }
-    
-    public void tambahBarangtoPemimjaman( List<Peminjaman> listPeminjaman ) throws IOException{
- 
+
+    public void tambahBarangtoPemimjaman(List<Peminjaman> listPeminjaman) throws IOException {
+
     }
-            
+
     public List<Peminjaman> viewPeminjaman(String username) {
         for (int i = 0; i < listAnggota.size(); i++) {
             if (listAnggota.get(i).getId().equals(username)) {
@@ -277,7 +288,7 @@ public class Aplication implements Serializable {
     public void tambahBarangPinjaman(String username, Barang b) throws IOException {
         loadAnggota();
     }
-    
+
     public int getIndexPeminjaman(int id, Anggota a) {
         for (int i = 0; i < a.getPeminjaman().size(); i++) {
             if (a.getPeminjaman().get(i).getId() == id) {
@@ -288,5 +299,3 @@ public class Aplication implements Serializable {
     }
 
 }
-
-

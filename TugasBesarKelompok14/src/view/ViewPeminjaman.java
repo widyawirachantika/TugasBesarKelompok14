@@ -67,11 +67,14 @@ public class ViewPeminjaman extends javax.swing.JFrame {
                 .addContainerGap(558, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addGap(25, 25, 25))
-            .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
                 .addGap(280, 280, 280)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,7 +100,7 @@ public class ViewPeminjaman extends javax.swing.JFrame {
     
     public void setHeader() {
         String[] header = {"Nama Anggota","Nama Barang","Jumlah Barang","Tanggal Pinjam"};
-        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model = new DefaultTableModel(null, header);
         tblListView.setModel(model);
     }
     

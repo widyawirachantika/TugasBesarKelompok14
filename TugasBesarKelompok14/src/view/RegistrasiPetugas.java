@@ -6,6 +6,7 @@
 package view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JTextField;
 
 /**
  *
@@ -122,9 +123,14 @@ public class RegistrasiPetugas extends javax.swing.JFrame {
     public String getUsername(){
         return txtFieldUser.getText();
     }
+
+    public String getNama() {
+        return txtFieldNama.getText();
+    }
     
-    public char[] getPassword(){
-        return passField.getPassword();
+    public String getPassword(){
+        String s = new String(passField.getPassword());
+        return s;
     }
     
     public void addlistener(ActionListener e) {
