@@ -35,6 +35,8 @@ public class MenuUtama extends javax.swing.JFrame {
         btnRegistP = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
+        btnViewDataP = new javax.swing.JButton();
+        btnViewDataA = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,6 +60,10 @@ public class MenuUtama extends javax.swing.JFrame {
 
         btnExit.setText("Exit");
 
+        btnViewDataP.setText("View Data Petugas");
+
+        btnViewDataA.setText("View Data Anggota");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -68,30 +74,36 @@ public class MenuUtama extends javax.swing.JFrame {
                         .addGap(173, 173, 173)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(btnExit))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(141, 141, 141)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnRegistP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnRegistA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(btnExit)))
-                .addContainerGap(143, Short.MAX_VALUE))
+                            .addComponent(btnRegistA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnViewDataP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnViewDataA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(btnLogin)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRegistA)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRegistP)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnViewDataP)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnViewDataA)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(btnExit)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -125,11 +137,21 @@ public class MenuUtama extends javax.swing.JFrame {
         return btnExit;
     }
     
+    public Object getBtnViewDataP(){
+        return btnViewDataP;
+    }
+    
+    public Object getBtnViewDataA(){
+        return btnViewDataA;
+    }
+    
     public void addlistener(ActionListener e) {
         btnExit.addActionListener(e);
         btnRegistP.addActionListener(e);
         btnRegistA.addActionListener(e);
         btnLogin.addActionListener(e);
+        btnViewDataA.addActionListener(e);
+        btnViewDataP.addActionListener(e);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -137,6 +159,8 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegistA;
     private javax.swing.JButton btnRegistP;
+    private javax.swing.JButton btnViewDataA;
+    private javax.swing.JButton btnViewDataP;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
